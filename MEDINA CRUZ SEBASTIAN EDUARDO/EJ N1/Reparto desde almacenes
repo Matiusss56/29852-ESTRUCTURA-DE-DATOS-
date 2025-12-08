@@ -1,0 +1,7 @@
+EJERCICIO N 1
+Reparto desde almacenes (capacidad por distancia)
+Enunciado:
+Hay tiendas situadas a lo largo de una carretera y varios almacenes. Cada almacén puede
+servir tiendas dentro de un radio R y tiene una capacidad ilimitada. Queremos el menor R 
+tal que todas las tiendas puedan ser atendidas (es decir, para cada tienda existe al menos
+un almacén a distancia ≤ R).

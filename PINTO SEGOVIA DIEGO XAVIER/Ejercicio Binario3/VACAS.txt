@@ -1,0 +1,3 @@
+Un granjero tiene N establos ubicados en diferentes posiciones a lo largo de una línea recta. Tiene C vacas que son muy agresivas entre sí.
+Para evitar que las vacas se peleen, el granjero quiere colocar las C vacas en C establos diferentes de manera que la distancia mínima entre cualquier par de vacas sea lo más grande posible.
+Objetivo: Maximizar la distancia mínima entre cualquier par de vacas.
