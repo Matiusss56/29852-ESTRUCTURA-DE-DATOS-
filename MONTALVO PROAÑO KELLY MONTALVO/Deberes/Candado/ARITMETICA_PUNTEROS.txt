@@ -1,0 +1,159 @@
+EJEMPLOS DE ARITMÉTICA DE PUNTEROS EN CANDADO.CPP
+===================================================
+
+1. ASIGNACIÓN DE CARACTERES
+===========================
+
+CON ARREGLOS (NO PERMITIDO):
+  char arr[5] = "abcd";
+  arr[0] = 'x';
+
+SIN ARREGLOS (IMPLEMENTADO):
+  char* arr = new char[5];
+  *(arr + 0) = 'x';    // Equivalente a arr[0]
+  *(arr + 1) = 'b';    // Equivalente a arr[1]
+  *(arr + 4) = '\0';   // Equivalente a arr[4]
+
+Ubicación en código: Función generarPermutaciones(), línea ~35
+  *(destino + i) = *(base + i);
+
+
+2. COMPARACIÓN DE CARACTERES
+=============================
+
+CON ARREGLOS (NO PERMITIDO):
+  if (password[j] != volatil[j]) {
+    coincide = false;
+  }
+
+SIN ARREGLOS (IMPLEMENTADO):
+  if (*(combinacionActual + j) != *(passwordVolatil + j)) {
+    coincide = false;
+  }
+
+Ubicación en código: Función buscarPasswordVoraz(), línea ~100
+  *(combinacionActual + j) != *(passwordVolatil + j)
+
+
+3. ITERACIÓN A TRAVÉS DE PUNTEROS
+==================================
+
+CON ARREGLOS (NO PERMITIDO):
+  for (int i = 0; i < 4; i++) {
+    resultado[i] = origen[i];
+  }
+
+SIN ARREGLOS (IMPLEMENTADO):
+  for (int i = 0; i < 4; i++) {
+    *(passwordEncontrada + i) = *(combinacionActual + i);
+  }
+
+Ubicación en código: Función buscarPasswordVoraz(), línea ~109
+
+
+4. ACCESO A ARRAY DE PUNTEROS
+==============================
+
+CON ARREGLOS (NO PERMITIDO):
+  diccionarioCombinaciones[indice] = new char[5];
+
+SIN ARREGLOS (IMPLEMENTADO):
+  *(diccionarioCombinaciones + indice) = new char[5];
+
+Ubicación en código: Función generarPermutaciones(), línea ~30
+
+
+5. LECTURA DE ARRAY DE PUNTEROS
+================================
+
+CON ARREGLOS (NO PERMITIDO):
+  char* origen = diccionarioCombinaciones[randomIndex];
+
+SIN ARREGLOS (IMPLEMENTADO):
+  char* origen = *(diccionarioCombinaciones + randomIndex);
+
+Ubicación en código: Función generarPasswordVolatil(), línea ~66
+
+
+6. CADENA DE CARACTERES DINÁMICA
+==================================
+
+CON ARREGLOS (NO PERMITIDO):
+  char usuario[10] = "admin";
+
+SIN ARREGLOS (IMPLEMENTADO):
+  char* usuario = new char[10];
+  *(usuario + 0) = 'a';
+  *(usuario + 1) = 'd';
+  *(usuario + 2) = 'm';
+  *(usuario + 3) = 'i';
+  *(usuario + 4) = 'n';
+  *(usuario + 5) = '\0';
+
+Ubicación en código: Función main(), línea ~140
+
+
+7. RECORRIDO DE DICCIONARIO
+============================
+
+CON ARREGLOS (NO PERMITIDO):
+  for (int i = 0; i < 24; i++) {
+    cout << diccionarioCombinaciones[i];
+  }
+
+SIN ARREGLOS (IMPLEMENTADO):
+  for (int i = 0; i < totalCombinaciones; i++) {
+    cout << *(diccionarioCombinaciones + i);
+  }
+
+Ubicación en código: Función buscarPasswordVoraz(), línea ~94
+
+
+8. LIBERACIÓN DE MEMORIA
+=========================
+
+CON ARREGLOS (NO PERMITIDO):
+  delete[] diccionarioCombinaciones[i];
+  (pero [i] es notación de arreglo)
+
+SIN ARREGLOS (IMPLEMENTADO):
+  delete[] *(diccionarioCombinaciones + i);
+
+Ubicación en código: Función liberarDiccionario(), línea ~130
+
+
+TABLA DE EQUIVALENCIAS
+======================
+
+  arr[i]                     ↔  *(arr + i)
+  arr[0]                     ↔  *arr
+  &arr[i]                    ↔  arr + i
+  arr[i][j]                  ↔  *(*(arr + i) + j)
+  &arr[0][0]                 ↔  *arr
+  arr++                      ↔  (No usamos, incrementaría el puntero)
+
+VENTAJAS DE ARITMÉTICA DE PUNTEROS
+===================================
+
+1. Mayor control de memoria
+2. Más cercano a cómo funciona la memoria realmente
+3. Más flexible para algoritmos complejos
+4. Mejor para estructuras dinámicas sin clases
+
+DESVENTAJAS (Por qué no se usa normalmente)
+===========================================
+
+1. Más difícil de leer
+2. Más propenso a errores
+3. Menos tipo-seguro
+4. Más lento en depuración
+
+PERO EN ESTE CASO:
+==================
+
+Es un requisito del usuario, así que se implementó 100% con
+aritmética de punteros, sin usar notación de arreglos [].
+
+---
+Generado: 8 de enero de 2026
+Estado: ✅ VERIFICADO

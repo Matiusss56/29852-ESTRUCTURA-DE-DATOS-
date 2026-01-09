@@ -1,0 +1,122 @@
+╔══════════════════════════════════════════════════════════════╗
+║          PROGRAMA INTERACTIVO - CANDADO INTELIGENTE           ║
+║     Algoritmo de Fuerza Bruta con Listas Enlazadas            ║
+╚══════════════════════════════════════════════════════════════╝
+
+=== CARACTERÍSTICAS PRINCIPALES ===
+
+✓ MENÚ INTERACTIVO
+  - Navegación fácil con opciones numeradas
+  - Interfaz colorida y amigable
+  - Validación de entrada automática
+
+✓ CONTRASEÑA VOLÁTIL
+  - Se genera aleatoriamente del diccionario en cada ejecución
+  - No está quemada en el código
+  - Se mantiene oculta durante el ataque
+
+✓ LISTAS ENLAZADAS
+  - Sin vectores ni arrays []
+  - Gestión de memoria dinámica
+  - Funciones automatizadas para operar la lista
+
+✓ DICCIONARIO INTELIGENTE
+  - 147 palabras cargadas en lista enlazada
+  - Búsqueda exhaustiva (fuerza bruta)
+  - Estadísticas de eficiencia
+
+✓ DOS MODOS DE ATAQUE
+  - DETALLADO: Muestra cada intento (cada 5 palabras)
+  - SILENCIOSO: Procesa sin mostrar progreso
+
+=== OPCIONES DEL MENÚ ===
+
+1. Generar nueva contraseña volátil
+   └─ Crea una contraseña aleatoria nueva del diccionario
+   └─ Útil para probar múltiples escenarios
+
+2. Ejecutar ataque (DETALLADO)
+   └─ Muestra el progreso cada 5 intentos
+   └─ Muestra estadísticas finales completas
+   └─ Perfecto para ver cómo funciona
+
+3. Ejecutar ataque (SILENCIOSO)
+   └─ Procesa sin mostrar cada intento
+   └─ Más rápido visualmente
+   └─ Ideal para pruebas masivas
+
+4. Ver estadísticas del sistema
+   └─ Información del diccionario cargado
+   └─ Estado de la contraseña
+   └─ Estado del sistema
+
+5. Salir
+   └─ Cierra la sesión y libera memoria
+   └─ Limpia los recursos utilizados
+
+=== EJEMPLO DE USO ===
+
+1. El programa inicia con login automático (usuario: admin)
+2. Genera una contraseña volátil aleatoria
+3. El diccionario se carga en lista enlazada (147 palabras)
+4. El usuario selecciona una opción del menú
+5. El ataque se ejecuta y muestra resultados
+6. El usuario puede generar nueva contraseña y repetir
+
+=== ESTRUCTURA DEL CÓDIGO ===
+
+main()
+├── validarUsuario()
+├── generarPasswordVolatil()
+└── MENÚ INTERACTIVO
+    ├── agregarAlFinal()
+    ├── contarElementos()
+    ├── buscarEnLista()
+    ├── romperCandadoConLista()
+    ├── mostrarEstadisticas()
+    └── liberarLista()
+
+=== FUNCIONES AUTOMATIZADAS (sin entrada manual) ===
+
+• crearNodo(valor)        - Crea un nodo para la lista
+• agregarAlFinal()        - Agrega elementos a la lista
+• buscarEnLista()         - Realiza la búsqueda (fuerza bruta)
+• generarPasswordVolatil() - Selecciona contraseña aleatoria
+• romperCandadoConLista() - Ejecuta el ataque completo
+• liberarLista()          - Libera memoria automáticamente
+• mostrarEstadisticas()   - Muestra información del sistema
+
+=== CARACTERÍSTICAS DE INTERFAZ ===
+
+• Colores diferentes para cada sección
+  - Verde: Éxito y información positiva
+  - Cyan: Títulos y encabezados
+  - Rojo: Errores
+  - Blanco: Texto normal
+
+• Líneas separadoras para mejor legibilidad
+
+• Limpiar pantalla entre operaciones
+
+• Pausas para lectura (ENTER)
+
+=== TÉCNICAMENTE ===
+
+Lenguaje:     C++ (Visual Studio compatible)
+Compilador:   g++ (MinGW)
+Librerías:    iostream, fstream, string, ctime, cstdlib, Windows.h
+Tipo de dato: Listas Enlazadas (struct Nodo con punteros)
+Memoria:      Gestión dinámica con new/delete
+Algoritmo:    Fuerza Bruta (Diccionario)
+Complejidad:  O(n) - donde n es cantidad de palabras en diccionario
+
+=== INSTRUCCIONES DE EJECUCIÓN ===
+
+1. Abre PowerShell en la carpeta del programa
+2. Ejecuta: .\candado.exe
+3. Presiona ENTER en la pantalla inicial
+4. Selecciona una opción del menú (1-5)
+5. Sigue las instrucciones en pantalla
+6. Cuando termines, selecciona opción 5 (Salir)
+
+¡Disfruta probando el programa!

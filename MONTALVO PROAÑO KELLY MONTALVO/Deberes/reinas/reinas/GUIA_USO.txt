@@ -1,0 +1,263 @@
+═══════════════════════════════════════════════════════════════════════════════
+                         GUÍA DE USO - LAS 8 REINAS
+                     SOLVER CON BACKTRACKING Y ANÁLISIS BIG-O
+═══════════════════════════════════════════════════════════════════════════════
+
+1. DESCRIPCIÓN DEL PROYECTO
+──────────────────────────
+
+Este programa resuelve el problema clásico de las 8 Reinas utilizando:
+• Algoritmo: Backtracking (retroceso) con poda
+• Tipo: Exhaustivo / Fuerza bruta inteligente
+• Resultado: Encuentra TODAS las 92 soluciones posibles
+
+El programa genera:
+- Visualización gráfica en consola de cada solución
+- Archivo .txt con todas las soluciones y procesos
+- Análisis detallado de complejidad algoritmica
+
+2. CÓMO COMPILAR
+────────────────
+
+Windows (CMD o PowerShell):
+    g++ -o reinas.exe reinas.cpp -std=c++17
+
+Linux/Mac:
+    g++ -o reinas reinas.cpp -std=c++17
+
+Alternativas:
+    clang++ -o reinas reinas.cpp -std=c++17
+
+3. CÓMO EJECUTAR
+────────────────
+
+Windows:
+    .\reinas.exe
+
+Linux/Mac:
+    ./reinas
+
+4. CARACTERÍSTICAS DEL PROGRAMA
+─────────────────────────────────
+
+A. SALIDA EN CONSOLA:
+   • Banner de inicio decorativo
+   • Mensaje "Resolviendo..."
+   • Para CADA solución encontrada:
+     - Separador visual (═════════════════════════════════════════)
+     - Número de solución (ej. "SOLUCIÓN #1")
+     - En qué PROCESO se encontró (ej. "proceso 114")
+     - Visualización gráfica del tablero 8×8
+       * ♛ = Reina
+       * · = Casilla vacía
+   • Análisis final de complejidad
+
+B. SALIDA EN ARCHIVO (soluciones_8_reinas.txt):
+   • Fecha y hora de ejecución
+   • LOG DETALLADO de cada proceso:
+     Ejemplo:
+     "Proceso #1: Reina colocada en [0,0]"
+     "Proceso #2: Reina colocada en [1,2]"
+     ...
+   • Para CADA SOLUCIÓN:
+     - Representación textual del tablero
+       * Q = Reina (Queen)
+       * . = Casilla vacía
+     - Número de solución
+     - En qué proceso se encontró
+   • Análisis de complejidad al final del archivo
+
+C. ARCHIVO ADICIONAL (ANALISIS_COMPLEJIDAD.txt):
+   • Análisis matemático completo
+   • Fórmulas de complejidad
+   • Comparaciones con otros algoritmos
+   • Mediciones reales de ejecución
+
+5. VISUALIZACIÓN EN CONSOLA
+────────────────────────────
+
+Ejemplo de tablero mostrado:
+  
+    0 1 2 3 4 5 6 7
+0 · · ♛ · · · · ·     ← Reina en columna 2, fila 0
+1 · · · · · ♛ · ·     ← Reina en columna 5, fila 1
+2 · · · · · · · ♛     ← Reina en columna 7, fila 2
+3 ♛ · · · · · · ·     ← Reina en columna 0, fila 3
+4 · · · ♛ · · · ·     ← Reina en columna 3, fila 4
+5 · · · · · · ♛ ·     ← Reina en columna 6, fila 5
+6 · · · · ♛ · · ·     ← Reina en columna 4, fila 6
+7 · ♛ · · · · · ·     ← Reina en columna 1, fila 7
+
+Validación: Ninguna reina ataca a otra (diferentes filas, columnas y diagonales)
+
+6. EJEMPLO DE ARCHIVO DE SALIDA
+────────────────────────────────
+
+Sección de procesos:
+═══════════════════════════════════════════
+EJECUCIÓN DEL PROGRAMA - LAS 8 REINAS
+Fecha/Hora: Fri Jan  9 00:00:39 2026
+═══════════════════════════════════════════
+
+PROCESO DE RESOLUCIÓN:
+─────────────────────────────────────────
+Proceso #1: Reina colocada en [0,0]
+Proceso #2: Reina colocada en [1,2]
+Proceso #3: Reina colocada en [2,4]
+...
+Proceso #114: Reina colocada en [4,3]
+
+Sección de soluciones:
+════════════════════════════════════════
+✓ SOLUCIÓN #1 ENCONTRADA EN PROCESO: 114
+════════════════════════════════════════
+Q . . . . . . . 
+. . . . Q . . . 
+. . . . . . . Q 
+. . . . . Q . . 
+. . Q . . . . . 
+. . . . . . Q . 
+. Q . . . . . . 
+. . . Q . . . . 
+Solución #1 encontrada en proceso: 114
+========================================
+
+[Se repite para cada una de las 92 soluciones]
+
+Sección de análisis:
+╔════════════════════════════════════════╗
+║   ANÁLISIS DE COMPLEJIDAD ALGORITMICA   ║
+╚════════════════════════════════════════╝
+
+PROBLEMA: Las 8 Reinas
+ALGORITMO: Backtracking (Fuerza Bruta Exhaustiva)
+
+COMPLEJIDAD TIME (Temporal):
+  • Peor caso: O(N!) = O(8!) = 40,320 operaciones
+  • Razón: Se exploran todas las permutaciones posibles
+  [Análisis detallado...]
+
+COMPLEJIDAD SPACE (Espacio):
+  • Memoria tablero: O(N²) = O(64) espacios
+  • Pila de recursión: O(N) = O(8) llamadas
+  [Análisis detallado...]
+
+7. REQUISITOS NO UTILIZADOS (POR ESPECIFICACIÓN)
+──────────────────────────────────────────────────
+
+Como se solicitó explícitamente, el programa NO utiliza:
+✗ Vectores (std::vector)
+✗ Structs
+✗ Linked Lists
+✗ Arrays con sintaxis [] dirección (se usan punteros dinámicos en su lugar)
+
+ALTERNATIVAS UTILIZADAS:
+✓ Punteros dinámicos con aritmética de punteros
+✓ Memoria dinámica (new/delete)
+✓ Funciones estándar de C++
+✓ Manipulación directa de memoria
+
+8. DETALLES DE IMPLEMENTACIÓN
+────────────────────────────────
+
+A. ESTRUCTURA DE DATOS PRINCIPAL:
+   int* tablero = crearTablero(64);  // Array dinámico
+   Acceso: *(tablero + posicion) en lugar de tablero[posicion]
+   Donde: posicion = fila * 8 + columna
+
+B. FUNCIONES PRINCIPALES:
+
+   crearTablero(tamanio)
+   • Asigna memoria dinámicamente
+   • Retorna puntero al inicio del bloque
+
+   esSeguro(tablero, fila, columna, tamanio)
+   • Valida que una reina no sea atacada
+   • Verifica columna, diagonal izquierda, diagonal derecha
+   • Retorna 1 si es seguro, 0 si no
+
+   resolverReinas(tablero, fila, tamanio)
+   • Función recursiva del backtracking
+   • Base: fila == tamanio → solución encontrada
+   • Recursión: intenta colocar reina en cada columna
+   • Backtrack: descoloca la reina y retrocede
+
+   imprimirTableroConsola(tablero, tamanio)
+   • Visualización gráfica en consola
+   • Usa caracteres Unicode (♛ para reina)
+
+   imprimirEnArchivo(tablero, tamanio, numSolucion, procesoDonde)
+   • Escribe solución en archivo
+   • Registra en qué proceso se encontró
+
+9. ANÁLISIS BIG-O RESUMIDO
+────────────────────────────
+
+COMPLEJIDAD TEMPORAL:
+  • Peor caso: O(N!) = O(8!) = 40,320 operaciones teóricas
+  • Caso práctico: ~2,057 nodos explorados (94.9% de poda)
+  • Razón: Backtracking explora N! permutaciones potenciales
+
+COMPLEJIDAD ESPACIAL:
+  • Memoria tablero: O(N²) = O(64)
+  • Pila de recursión: O(N) = O(8)
+  • Total dominante: O(N²)
+  • En términos absolutos: ~256 bytes para tablero + ~256 bytes para pila
+
+TIPO DE ALGORITMO:
+  • NP-Completo (problema general)
+  • Fuerza bruta con optimización (poda)
+  • Exhausiativo pero práctico para N pequeño (N ≤ 15)
+
+ESCALABILIDAD:
+  N=8:  8! = 40,320 (< 1 segundo)
+  N=10: 10! = 3,628,800 (1-2 segundos)
+  N=12: 12! = 479,001,600 (minutos)
+  N=14: 14! = 87 mil millones (horas)
+  N=15: 15! = 1.3 billones (NO VIABLE)
+
+10. FLUJO DE EJECUCIÓN
+──────────────────────
+
+1. Crear tablero 8×8 (memoria dinámica)
+2. Inicializar todo a 0 (vacío)
+3. Iniciar recursión: resolverReinas(tablero, 0)
+4. Para cada fila (0 a 7):
+   a. Para cada columna (0 a 7):
+      - Si es seguro colocar reina:
+        ✓ Colocar reina
+        ✓ Registrar en log
+        ✓ Llamar recursivamente para siguiente fila
+        ✓ Si encuentra solución: guardar
+        ✓ Descolocar reina (backtrack)
+      - Si no es seguro: saltar a siguiente columna
+5. Cuando fila == 8: solución encontrada
+6. Mostrar en consola y archivo
+7. Liberar toda la memoria
+8. Mostrar estadísticas
+
+11. RESULTADO DE LA EJECUCIÓN
+──────────────────────────────
+
+✓ Total de soluciones encontradas: 92
+✓ Total de procesos explorados: 2,057
+✓ Archivo generado: soluciones_8_reinas.txt (202 KB)
+✓ Tiempo de ejecución: < 1 segundo
+✓ Memoria utilizada: < 1 MB
+
+12. INTERPRETACIÓN DE RESULTADOS
+──────────────────────────────────
+
+A. NÚMERO DE SOLUCIONES:
+   El problema de las 8 Reinas tiene EXACTAMENTE 92 soluciones
+   Si cuentas soluciones DISTINTAS sin rotaciones/reflexiones: 12
+
+B. PROCESOS REGISTRADOS:
+   No es 40,320 porque la poda elimina ramas imposibles
+   La validación temprana (esSeguro) evita explorar ramas inválidas
+
+C. COMPLEJIDAD REAL:
+   Aunque el algoritmo es O(N!), la poda lo hace práctico
+   El 94.9% de las ramas potenciales se eliminan tempranamente
+
+═══════════════════════════════════════════════════════════════════════════════

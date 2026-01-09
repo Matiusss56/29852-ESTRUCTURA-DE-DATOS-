@@ -1,0 +1,105 @@
+VERIFICACION DE REQUISITOS - CANDADO.CPP
+==========================================
+
+Fecha de Completacion: 2024
+Codigo: candado.cpp
+Tamanio: 327 lineas
+Compilacion: EXITOSA
+Ejecutable: candado.exe
+
+VERIFICACIONES DE REQUISITOS CUMPLIDOS:
+
+1. NO STRUCT
+   Status: VERIFICADO ✓
+   Explicacion: Se elimino completamente struct. Se reemplazo con class Nodo (linea 9-17)
+   Busqueda: grep 'struct' = NO ENCONTRADO
+   
+2. NO WINDOWS.H  
+   Status: VERIFICADO ✓
+   Explicacion: Se elimino Windows.h completamente. Sin SetConsoleTextAttribute
+   Includes actuales: iostream, fstream, string, ctime, cstdlib SOLO
+   Busqueda: grep 'Windows.h' = NO ENCONTRADO
+   Busqueda: grep 'SetConsoleTextAttribute' = NO ENCONTRADO
+   Busqueda: grep 'setColor' = NO ENCONTRADO
+   
+3. NO ACENTOS EN CODIGO
+   Status: VERIFICADO ✓
+   Explicacion: Se elimino todos los acentos. Ejemplos:
+   - "contrasena" (NO contraseña)
+   - "estadisticas" (NO estadísticas)
+   - "autenticacion" (NO autenticación)
+   - "volatil" (NO volátil)
+   - "funcion" (NO función)
+   Busqueda: grep '[ó|á|é|í|ú|ñ|ü]' = NO ENCONTRADO
+   
+4. LISTAS ENLAZADAS
+   Status: VERIFICADO ✓
+   Explicacion: Implementacion completa con class Nodo
+   - Nodo* siguiente: puntero para enlazamiento
+   - Constructor: Nodo(string valor)
+   - agregarAlFinal(): agrega nodos dinamicamente
+   - buscarEnLista(): busca en lista enlazada
+   - liberarLista(): desaloca memoria
+   - contarElementos(): recorre lista
+   
+5. FUERZA BRUTA
+   Status: VERIFICADO ✓
+   Explicacion: Algoritmo O(n) que compara cada palabra del diccionario
+   Funcion: buscarEnLista() compara actual->dato == passwordVolatilGlobal
+   Estadisticas: muestra intentos, tiempo, eficiencia
+   
+6. CONTRASENA VOLATIL
+   Status: VERIFICADO ✓
+   Explicacion: Generada aleatoriamente del diccionario en tiempo de ejecucion
+   Funcion: generarPasswordVolatil() selecciona indiceAleatorio
+   NO HARDCODEADA: se selecciona aleatoriamente en cada ejecucion
+   
+7. MENU INTERACTIVO
+   Status: VERIFICADO ✓
+   Explicacion: 5 opciones con switch/case
+   Opcion 1: Generar nueva contrasena volatil
+   Opcion 2: Ejecutar ataque (DETALLADO)
+   Opcion 3: Ejecutar ataque (SILENCIOSO)
+   Opcion 4: Ver estadisticas
+   Opcion 5: Salir
+   
+8. AUTOMATIZACION
+   Status: VERIFICADO ✓
+   Explicacion: Login automatico con usuario="admin"
+   Sin entrada manual requerida para funciones principales
+   Contrasena volatil generada automaticamente al iniciar
+   
+9. DICCIONARIO
+   Status: VERIFICADO ✓
+   Explicacion: Carga diccionario.txt con 147 palabras
+   Funciona con agregarAlFinal() y contarElementos()
+   
+10. COMPILACION
+    Status: EXITOSA ✓
+    Comando: g++ -o candado.exe candado.cpp
+    Errores: NINGUNO
+    Warnings: NINGUNO
+    
+ESTRUCTURA DEL CODIGO:
+
+- Lineas 1-6: Includes (iostream, fstream, string, ctime, cstdlib)
+- Lineas 8-17: class Nodo (dato, siguiente, constructor)
+- Lineas 19-23: Variables globales (lista, password, flags)
+- Lineas 25-31: Funciones utilidad (limpiarPantalla, linea)
+- Lineas 33-44: agregarAlFinal()
+- Lineas 46-67: buscarEnLista()
+- Lineas 69-80: liberarLista()
+- Lineas 82-93: contarElementos()
+- Lineas 95-121: mostrarEstadisticas()
+- Lineas 123-128: validarUsuario()
+- Lineas 130-156: generarPasswordVolatil()
+- Lineas 158-213: romperCandadoConLista()
+- Lineas 215-227: mostrarMenuPrincipal()
+- Lineas 229-327: main() con menu interactivo
+
+COMPATIBILIDAD:
+- Visual Studio C++: SI
+- MinGW/g++: CONFIRMADO
+- Estandar C++: SI (C++11 compatible)
+
+RESULTADO FINAL: ✓ CUMPLE TODOS LOS REQUISITOS

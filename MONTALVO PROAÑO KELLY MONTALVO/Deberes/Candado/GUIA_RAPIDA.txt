@@ -1,0 +1,76 @@
+GUÍA RÁPIDA DE USO - CANDADO VORAZ
+=====================================
+
+1. COMPILAR EL PROGRAMA:
+   g++ -o candado.exe candado.cpp
+
+2. EJECUTAR:
+   candado.exe
+
+3. PANTALLA DE INICIO:
+   - Login automático como "admin"
+   - Se genera diccionario de 24 combinaciones
+   - Se genera contraseña volátil aleatoria (1 de las 24)
+
+4. MENÚ PRINCIPAL:
+   
+   Opción 1: Generar nueva contraseña volátil
+   → Crea una nueva contraseña aleatoria diferente a la anterior
+   
+   Opción 2: Ejecutar ataque (DETALLADO)
+   → Muestra cada 3 intentos qué combinación está probando
+   → Indica cuando encuentra la contraseña
+   → Muestra estadísticas: intentos, tiempo, eficiencia
+   
+   Opción 3: Ejecutar ataque (SILENCIOSO)
+   → Ejecuta la búsqueda sin mostrar detalles
+   → Solo muestra resultado final
+   
+   Opción 4: Ver estadísticas
+   → Muestra información del diccionario
+   → Estado del sistema
+   
+   Opción 5: Salir
+   → Libera memoria y cierra el programa
+
+5. ENTENDER EL PROGRAMA:
+
+   - DICCIONARIO: 24 permutaciones de "1234"
+     (1234, 1243, 1324, 1342, 1423, 1432, 2134, 2143, 2314, 2341, 
+      2413, 2431, 3124, 3142, 3214, 3241, 3412, 3421, 4123, 4132, 
+      4213, 4231, 4312, 4321)
+   
+   - CONTRASEÑA: Se selecciona aleatoriamente del diccionario
+     Cada ejecución = contraseña diferente (VOLÁTIL)
+   
+   - BÚSQUEDA: Algoritmo voraz que compara una a una
+     contra el diccionario hasta encontrar la correcta
+   
+   - RESULTADO: "CANDADO DESBLOQUEADO EXITOSAMENTE"
+     Con información de intentos, tiempo y eficiencia
+
+6. EJEMPLO DE EJECUCIÓN:
+
+   Primera ejecución:
+   - Contraseña aleatoria: 3142
+   - Búsqueda: Intento 1→3124, Intento 2→3142 ✓
+   - Resultado: 2 intentos en 0 segundos (8.33% eficiencia)
+   
+   Segunda ejecución:
+   - Contraseña aleatoria: 4231 (DIFERENTE!)
+   - Búsqueda: Intento 1→3124, Intento 2→3142, ... Intento 18→4231 ✓
+   - Resultado: 18 intentos en 0 segundos (75% eficiencia)
+
+7. CARACTERÍSTICAS PRINCIPALES:
+
+   ✓ Contraseña volátil (aleatoria cada ejecución)
+   ✓ Algoritmo voraz (búsqueda secuencial)
+   ✓ Sin vectores, sin struct, sin linked lists
+   ✓ Diccionario generado automáticamente
+   ✓ Login automático ("admin")
+   ✓ Interfaz clara y menú interactivo
+   ✓ Estadísticas detalladas de búsqueda
+   ✓ Liberación correcta de memoria
+
+=====================================
+¡Listo para usar!

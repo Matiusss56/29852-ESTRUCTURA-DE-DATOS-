@@ -1,0 +1,254 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                   RESUMEN TÉCNICO DEL PROYECTO - 8 REINAS                     ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 1. INFORMACIÓN BÁSICA                                                         │
+├───────────────────────────────────────────────────────────────────────────────┤
+│ • Problema:           Las 8 Reinas (8-Queens Problem)                        │
+│ • Lenguaje:           C++ (C++17)                                             │
+│ • Compilador:         g++ o clang++                                           │
+│ • Plataforma:         Windows, Linux, macOS                                   │
+│ • Dependencias:       Ninguna (solo librerías estándar)                       │
+│ • Compilación:        g++ -o reinas.exe reinas.cpp -std=c++17                 │
+│ • Ejecución:          ./reinas.exe (o reinas.exe en Windows)                  │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 2. CARACTERÍSTICAS DEL PROGRAMA                                               │
+├───────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Encuentra TODAS las 92 soluciones posibles                                 │
+│ ✓ Visualización gráfica en consola (tableros 8×8)                            │
+│ ✓ Exporta todas las soluciones a archivo .txt                                │
+│ ✓ Registra cada proceso hasta encontrar solución                             │
+│ ✓ Indica en qué proceso se encontró cada solución (Primera aparición)        │
+│ ✓ Análisis de complejidad Big-O integrado                                    │
+│ ✓ Usa memoria dinámica (sin vectores, structs ni arrays [])                  │
+│ ✓ Interfaz colorida y visual con caracteres Unicode                          │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 3. COMPLEJIDAD ALGORITMICA - ANÁLISIS BIG-O                                  │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ COMPLEJIDAD TEMPORAL:                                                        │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ Peor Caso:     O(N!) = O(8!) = 40,320 operaciones teóricas              │ │
+│ │ Caso Práctico: O(2,057 nodos) - 94.9% eliminados por poda               │ │
+│ │ Razón:         Explora todas las permutaciones potenciales               │ │
+│ │ Fórmula:       T(n) = n × T(n-1) = n!                                   │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                               │
+│ COMPLEJIDAD ESPACIAL:                                                        │
+│ ┌─────────────────────────────────────────────────────────────────────────┐ │
+│ │ Memoria Tablero:    O(N²) = O(64) = 256 bytes                           │ │
+│ │ Pila de Recursión:  O(N)  = O(8)  = ~256 bytes                          │ │
+│ │ Espacio Total:      O(N²) (dominante)                                   │ │
+│ │ Memoria Real:       < 1 MB durante ejecución                            │ │
+│ └─────────────────────────────────────────────────────────────────────────┘ │
+│                                                                               │
+│ TIPO DE ALGORITMO:     Backtracking con Poda (Fuerza Bruta Inteligente)     │
+│ CATEGORÍA:             NP-Completo                                           │
+│ CLASIFICACIÓN:         Exhaustivo / Recursivo                                │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 4. ARCHIVOS GENERADOS                                                         │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ Archivo                     │ Tamaño    │ Descripción                       │
+│ ────────────────────────────┼──────────┼─────────────────────────────────────│
+│ reinas.cpp                  │ 8.27 KB  │ Código fuente C++                 │
+│ reinas.exe                  │ 140.51 KB│ Ejecutable compilado              │
+│ soluciones_8_reinas.txt     │ 201.73 KB│ LOG de procesos y soluciones      │
+│ GUIA_USO.txt                │ 10.15 KB │ Manual de uso detallado           │
+│ ANALISIS_COMPLEJIDAD.txt    │ 8.97 KB  │ Análisis matemático del Big-O     │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 5. RESULTADOS DE EJECUCIÓN                                                   │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ • Soluciones encontradas:    92 (TODAS las soluciones para tablero 8×8)     │
+│ • Procesos ejecutados:       2,057 nodos explorados                         │
+│ • Ramas podadas:             38,263 (94.9% de eliminación)                  │
+│ • Tiempo de ejecución:       < 1 segundo                                     │
+│ • Memoria utilizada:         < 1 MB                                          │
+│ • Estado:                    ✓ EXITOSO                                       │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 6. RESTRICCIONES TÉCNICAS CUMPLIDAS                                          │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ ✓ NO utiliza std::vector                                                     │
+│ ✓ NO utiliza struct                                                          │
+│ ✓ NO utiliza linked lists                                                    │
+│ ✓ NO utiliza sintaxis de arrays []                                           │
+│ ✓ Usa punteros dinámicos en su lugar (new/delete)                           │
+│ ✓ Utiliza aritmética de punteros para acceso                                │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 7. CÓMO INTERPRETAR LA SALIDA                                                │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ CONSOLA:                                                                     │
+│ ─ Muestra cada solución con visualización gráfica                           │
+│ ─ Indica número de solución (1-92)                                           │
+│ ─ Muestra en qué proceso se encontró (Primera aparición)                    │
+│ ─ Tablero representado con ♛ (reina) y · (vacío)                            │
+│                                                                               │
+│ ARCHIVO soluciones_8_reinas.txt:                                            │
+│ ─ Registra TODOS los procesos ejecutados                                     │
+│ ─ Muestra cada solución en formato texto (Q = reina, . = vacío)             │
+│ ─ Indica exactamente en qué proceso se encontró                             │
+│ ─ Incluye análisis de complejidad al final                                  │
+│                                                                               │
+│ Ejemplo de PRIMERA APARICIÓN:                                               │
+│ ─ Proceso #1 a #113: Exploración                                            │
+│ ─ Proceso #114: ✓ SOLUCIÓN #1 encontrada (PRIMERA APARICIÓN)                │
+│ ─ Proceso #115 en adelante: Continúa buscando otras soluciones              │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 8. FÓRMULAS Y NOTACIÓN MATEMÁTICA                                            │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ Complejidad Temporal:                                                        │
+│   T(n) = n × T(n-1)  donde T(1) = 1                                         │
+│   T(n) = n! = n × (n-1) × (n-2) × ... × 1                                   │
+│   Para n=8: 8! = 40,320                                                     │
+│                                                                               │
+│ Complejidad Espacial:                                                        │
+│   S(n) = O(n²) + O(n) = O(n²)                                                │
+│   Dominante: Memoria del tablero                                             │
+│                                                                               │
+│ Eficiencia de Poda:                                                          │
+│   Ramas eliminadas = (Teórico - Práctico) / Teórico                         │
+│   = (40,320 - 2,057) / 40,320                                               │
+│   = 94.9% de ramas podadas                                                  │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 9. DETALLES DE IMPLEMENTACIÓN                                                │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ Acceso a Memoria:                                                            │
+│   Sintaxis tradicional:        tablero[fila][columna]                        │
+│   Sintaxis con punteros:       *(tablero + fila*8 + columna)                 │
+│                                                                               │
+│ Asignación de Memoria:                                                       │
+│   int* tablero = new int[64];  // Asignar                                    │
+│   delete[] tablero;            // Liberar                                    │
+│                                                                               │
+│ Validaciones:                                                                │
+│   • esSeguro() - Verifica columna, diagonal izq, diagonal der              │
+│   • Elimina ramas inválidas ANTES de explorarlas                            │
+│   • Responsable del 94.9% de mejora de eficiencia                           │
+│                                                                               │
+│ Backtracking:                                                                │
+│   1. Colocar reina                                                          │
+│   2. Validar (esSeguro)                                                     │
+│   3. Recursivamente siguiente fila                                          │
+│   4. Descolocar reina (backtrack)                                           │
+│   5. Intentar siguiente opción                                              │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 10. COMPARACIÓN DE COMPLEJIDADES                                             │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ Para N = 8:                                                                  │
+│                                                                               │
+│   O(1)       → 1                    (Constante)                              │
+│   O(log N)   → 3                    (Logarítmico)                            │
+│   O(N)       → 8                    (Lineal)                                 │
+│   O(N log N) → 24                   (Lineal-Logarítmico)                     │
+│   O(N²)      → 64                   (Cuadrático)                             │
+│   O(N³)      → 512                  (Cúbico)                                 │
+│   O(2^N)     → 256                  (Exponencial)                            │
+│ ► O(N!)      → 40,320               ← NUESTRO ALGORITMO (PEOR)               │
+│                                                                               │
+│ Conclusión: O(N!) es la peor complejidad común, pero necesaria para         │
+│             problemas exhaustivos como este.                                │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 11. VENTAJAS Y DESVENTAJAS                                                   │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ VENTAJAS:                                                                    │
+│ ✓ Encuentra TODAS las soluciones (Completo)                                  │
+│ ✓ Usa poda para eliminar ramas inválidas (Optimizado)                        │
+│ ✓ Rápido en problemas pequeños (N ≤ 15)                                      │
+│ ✓ Bajo uso de memoria comparado con otras soluciones                         │
+│ ✓ Fácil de entender y modificar                                              │
+│                                                                               │
+│ DESVENTAJAS:                                                                 │
+│ ✗ O(N!) crece muy rápidamente con N                                          │
+│ ✗ N=10: 3.6M; N=12: 479M; N=15: 1.3 billones                                │
+│ ✗ No viable para tableros muy grandes (N > 20)                               │
+│ ✗ Requiere exploración exhaustiva                                            │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 12. ESCALABILIDAD                                                            │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│   N      │  N!          │ Tiempo Estimado  │ Viabilidad                      │
+│ ─────────┼──────────────┼──────────────────┼──────────────────────────────    │
+│   4      │  24          │ < 1 ms           │ Trivial                         │
+│   6      │  720         │ < 10 ms          │ Muy rápido                      │
+│   8      │  40,320      │ < 1 segundo      │ ✓ Rápido (NUESTRO PROYECTO)     │
+│  10      │  3,628,800   │ ~2 segundos      │ ✓ Lento                         │
+│  12      │  479 millones│ ~1-2 minutos     │ ✓ Lento (necesita opt.)         │
+│  14      │  87 mil mill.│ Horas            │ ✗ No recomendado                │
+│  15      │  1.3 trillón│ Horas-Días       │ ✗ No viable                     │
+│  20      │  2.4×10^18  │ Años             │ ✗ Imposible                     │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────────┐
+│ 13. CONCLUSIÓN EJECUTIVA                                                     │
+├───────────────────────────────────────────────────────────────────────────────┤
+│                                                                               │
+│ Este proyecto implementa exitosamente el algoritmo de Backtracking para      │
+│ resolver el problema de las 8 Reinas, con:                                  │
+│                                                                               │
+│ • Complejidad Temporal:     O(N!) = O(40,320) teórico / O(2,057) práctico   │
+│ • Complejidad Espacial:     O(N²) = O(64)                                    │
+│ • Eficiencia:               94.9% de poda efectiva                           │
+│ • Soluciones encontradas:   92 (TODAS)                                       │
+│ • Tiempo de ejecución:      < 1 segundo                                      │
+│                                                                               │
+│ El algoritmo demuestra cómo la validación temprana y la poda pueden         │
+│ reducir dramáticamente la complejidad práctica de un problema exhaustivo.    │
+│                                                                               │
+│ El código cumple todas las restricciones técnicas:                          │
+│ • Sin vectores, structs, linked lists                                        │
+│ • Usa punteros dinámicos en su lugar                                         │
+│ • Interfaz gráfica en consola                                                │
+│ • Análisis BIG-O incluido                                                    │
+│                                                                               │
+└───────────────────────────────────────────────────────────────────────────────┘
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                         FIN DEL RESUMEN TÉCNICO                              ║
+║                                                                               ║
+║             Para más información, consultar:                                 ║
+║             • GUIA_USO.txt - Manual detallado de uso                          ║
+║             • ANALISIS_COMPLEJIDAD.txt - Análisis matemático                  ║
+║             • soluciones_8_reinas.txt - Salida del programa                   ║
+╚═══════════════════════════════════════════════════════════════════════════════╝

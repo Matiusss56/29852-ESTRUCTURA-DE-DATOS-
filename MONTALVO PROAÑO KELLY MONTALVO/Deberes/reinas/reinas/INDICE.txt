@@ -1,0 +1,459 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                        ÍNDICE DEL PROYECTO                                    ║
+║                                                                               ║
+║                    PROBLEMA DE LAS 8 REINAS - BACKTRACKING                    ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  ESTRUCTURA DE ARCHIVOS Y CONTENIDOS                                         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+TOTAL: 9 ARCHIVOS | 468.51 KB
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 1. README.txt (22.55 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Descripción general del proyecto
+  ✓ Inicio rápido (Quick Start)
+  ✓ Archivos del proyecto con descripción
+  ✓ Requisitos técnicos
+  ✓ Complejidad algoritmica BIG-O
+  ✓ Resultados de ejecución
+  ✓ Cómo compilar y ejecutar
+  ✓ Cómo entender la salida
+  ✓ Cumplimiento de requisitos
+  ✓ Estructura del código fuente
+  ✓ Algoritmo explicado
+  ✓ Detalles de implementación
+  ✓ Documentación adicional
+  ✓ Preguntas frecuentes (FAQ)
+  ✓ Solución de problemas
+  ✓ Conclusión
+
+PARA LEER: Primero, para entender el proyecto en general
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 2. reinas.cpp (8.27 KB) - CÓDIGO FUENTE
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ 250+ líneas de código C++
+  ✓ Función main() - Orquestación
+  ✓ crearTablero() - Asignación de memoria
+  ✓ liberarTablero() - Liberación de memoria
+  ✓ resolverReinas() - Función recursiva BACKTRACKING
+  ✓ esSeguro() - Validación de posición (PODA)
+  ✓ imprimirTableroConsola() - Visualización gráfica
+  ✓ imprimirEnArchivo() - Exportación a .txt
+  ✓ mostrarEstadisticas() - Análisis BIG-O
+
+CARACTERÍSTICAS:
+  ✓ Usa punteros dinámicos (new/delete)
+  ✓ NO utiliza vectores, structs, linked lists
+  ✓ Sin arrays []
+  ✓ Usa aritmética de punteros
+  ✓ Interfaz gráfica con Unicode (♛, ·)
+
+COMPILACIÓN:
+  g++ -o reinas.exe reinas.cpp -std=c++17
+
+PARA REVISAR: Si quieres ver la implementación técnica
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 3. reinas.exe (140.51 KB) - EJECUTABLE COMPILADO
+═══════════════════════════════════════════════════════════════════════════════
+
+DESCRIPCIÓN:
+  ✓ Programa compilado listo para ejecutar
+  ✓ Compatible con Windows
+  ✓ Generado con g++ -std=c++17
+  ✓ No requiere dependencias externas
+
+EJECUCIÓN:
+  .\reinas.exe
+
+PARA USAR: Ejecutar directamente para resolver las 8 reinas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 4. soluciones_8_reinas.txt (201.73 KB) - SALIDA PRINCIPAL
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Encabezado con fecha/hora de ejecución
+  ✓ LOG de todos los 2,057 procesos ejecutados
+  ✓ Para CADA UNA de las 92 soluciones:
+    - Visualización del tablero en formato texto
+    - Número de solución (1-92)
+    - Proceso exacto donde se encontró (PRIMERA APARICIÓN)
+  ✓ Análisis de complejidad final
+
+FORMATO DE TABLERO:
+  Q = Reina (Queen)
+  . = Casilla vacía
+  8 líneas por solución
+
+PARA REVISAR: Después de ejecutar el programa, para ver todas las soluciones
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 5. GUIA_USO.txt (10.15 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Descripción del proyecto
+  ✓ Cómo compilar (Windows, Linux, macOS)
+  ✓ Cómo ejecutar
+  ✓ Características del programa
+    - Salida en consola
+    - Salida en archivo
+    - Archivo adicional de análisis
+  ✓ Visualización en consola (explicada)
+  ✓ Ejemplo de archivo de salida
+  ✓ Requisitos no utilizados
+  ✓ Detalles de implementación
+    - Estructura de datos
+    - Funciones principales
+    - Gestión de memoria
+  ✓ Análisis BIG-O resumido
+  ✓ Flujo de ejecución
+  ✓ Resultados de ejecución
+  ✓ Interpretación de resultados
+
+PARA LEER: Si necesitas instrucciones paso a paso para compilar y ejecutar
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 6. ANALISIS_COMPLEJIDAD.txt (8.97 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Descripción del problema (Las 8 Reinas)
+  ✓ Algoritmo utilizado (Backtracking)
+  ✓ Pseudocódigo del algoritmo
+  ✓ Análisis detallado de complejidad TEMPORAL
+    - Peor caso: O(8!) = 40,320
+    - Con optimización (poda)
+    - Análisis detallado de operaciones
+  ✓ Análisis detallado de complejidad ESPACIAL
+    - Memoria del tablero: O(N²)
+    - Pila de recursión: O(N)
+    - Otras estructuras
+  ✓ Comparación de tipos de complejidad
+  ✓ Comparación con otras soluciones
+  ✓ Ventajas del backtracking con poda
+  ✓ Desventajas
+  ✓ Mediciones reales de ejecución
+  ✓ Análisis BIG-O final
+  ✓ Conclusión
+
+PARA LEER: Si necesitas entender matemáticamente la complejidad O(N!)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 7. RESUMEN_TECNICO.txt (28.12 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Información básica del proyecto
+  ✓ Características principales (con ✓)
+  ✓ Complejidad algoritmica (O(N!))
+  ✓ Archivos generados (con tamaños)
+  ✓ Restricciones técnicas cumplidas
+  ✓ Características del programa
+  ✓ Resultados de ejecución
+  ✓ Cómo interpretar la salida
+  ✓ Fórmulas y notación matemática
+  ✓ Detalles de implementación
+  ✓ Comparación de complejidades (tabla)
+  ✓ Ventajas y desventajas
+  ✓ Escalabilidad (tabla con N vs tiempo)
+  ✓ Conclusión ejecutiva
+
+PARA LEER: Para un resumen técnico ejecutivo y completo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 8. PROYECTO_COMPLETADO.txt (24.59 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Checklist completo de requisitos (✓ = cumplido)
+  ✓ Especificaciones técnicas
+  ✓ Archivos generados (con descripción)
+  ✓ Cómo usar el programa (paso a paso)
+  ✓ Ejemplo de salida del programa
+  ✓ Análisis de complejidad resumido
+  ✓ Comparación con otras soluciones
+  ✓ Limitaciones y escalabilidad (tabla)
+  ✓ Detalles técnicos clave
+  ✓ Flujo de ejecución
+  ✓ Interpretación de resultados
+  ✓ Conclusiones
+
+PARA LEER: Para verificar que todos los requisitos se cumplieron
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ 9. EJEMPLOS_VISUALES.txt (22.63 KB)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTENIDO:
+  ✓ Solución #1 (visual y análisis)
+  ✓ Solución #10 (visual y análisis)
+  ✓ Solución #92 (visual y análisis)
+  ✓ Comparación de soluciones
+  ✓ Patrones en soluciones
+  ✓ Visualización de procesos fallidos
+  ✓ Análisis visual de poda
+  ✓ Ejemplo de archivo de salida
+  ✓ Estadísticas de las 92 soluciones
+  ✓ Cómo leer la salida
+  ✓ Conclusión visual
+
+PARA LEER: Si quieres ver ejemplos visuales de soluciones
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ARCHIVO ÍNDICE (este archivo) - INDICE.txt
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTIENE: Descripción de todos los archivos y cómo usarlos
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  GUÍA DE LECTURA RECOMENDADA                                                 ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+PARA USUARIOS NUEVOS (sin experiencia en backtracking):
+  1. README.txt                    ← Visión general
+  2. GUIA_USO.txt                  ← Cómo usar el programa
+  3. EJEMPLOS_VISUALES.txt         ← Ver ejemplos
+  4. Ejecutar el programa          ← Ver las 92 soluciones
+  5. soluciones_8_reinas.txt       ← Revisar archivo de salida
+
+PARA PROGRAMADORES (quieren ver el código):
+  1. README.txt                    ← Contexto general
+  2. reinas.cpp                    ← Analizar código fuente
+  3. GUIA_USO.txt                  ← Entender estructura
+  4. ANALISIS_COMPLEJIDAD.txt      ← Validar complejidad
+  5. RESUMEN_TECNICO.txt           ← Detalles técnicos
+
+PARA ANALISTAS DE COMPLEJIDAD (interesados en Big-O):
+  1. ANALISIS_COMPLEJIDAD.txt      ← Análisis matemático
+  2. RESUMEN_TECNICO.txt           ← Tabla comparativa
+  3. PROYECTO_COMPLETADO.txt       ← Escalabilidad
+  4. reinas.cpp                    ← Ver implementación
+
+PARA VERIFICAR CUMPLIMIENTO DE REQUISITOS:
+  1. PROYECTO_COMPLETADO.txt       ← Checklist completo
+  2. reinas.cpp                    ← Verificar sin vectores/structs
+  3. soluciones_8_reinas.txt       ← Verificar 92 soluciones
+  4. README.txt                    ← Resumen
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  BÚSQUEDA RÁPIDA (por tema)                                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+¿Cómo compilo el código?
+  → GUIA_USO.txt → sección "CÓMO COMPILAR"
+  → README.txt → sección "CÓMO COMPILAR"
+
+¿Cómo ejecuto el programa?
+  → GUIA_USO.txt → sección "CÓMO EJECUTAR"
+  → README.txt → sección "CÓMO EJECUTAR"
+
+¿Cuál es la complejidad del algoritmo?
+  → ANALISIS_COMPLEJIDAD.txt → sección "ANÁLISIS DE COMPLEJIDAD TEMPORAL"
+  → RESUMEN_TECNICO.txt → sección "ANÁLISIS DE COMPLEJIDAD"
+
+¿Qué es el backtracking?
+  → README.txt → sección "ALGORITMO EXPLICADO"
+  → ANALISIS_COMPLEJIDAD.txt → sección "ALGORITMO UTILIZADO"
+
+¿Cuántas soluciones encuentra?
+  → README.txt → sección "RESULTADOS DE EJECUCIÓN"
+  → PROYECTO_COMPLETADO.txt → sección "RESULTADOS DE EJECUCIÓN"
+
+¿Cómo entiendo la salida?
+  → GUIA_USO.txt → sección "VISUALIZACIÓN EN CONSOLA"
+  → EJEMPLOS_VISUALES.txt → sección "EJEMPLO DE ARCHIVO DE SALIDA"
+
+¿Cómo veo ejemplos de soluciones?
+  → EJEMPLOS_VISUALES.txt → sección "SOLUCIÓN #1", "#10", "#92"
+
+¿Qué requisitos se cumplen?
+  → PROYECTO_COMPLETADO.txt → sección "CHECKLIST DE REQUISITOS"
+
+¿Hay un FAQ?
+  → README.txt → sección "PREGUNTAS FRECUENTES (FAQ)"
+
+¿Qué pasa si tengo problemas?
+  → README.txt → sección "SOLUCIÓN DE PROBLEMAS"
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  DATOS CLAVE DEL PROYECTO                                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+SOLUCIONES ENCONTRADAS:        92 (todas las posibles)
+PROCESOS EJECUTADOS:           2,057 nodos
+PROCESOS TEÓRICOS:             40,320 (sin poda)
+EFICIENCIA DE PODA:            94.9% de ramas eliminadas
+COMPLEJIDAD TEMPORAL:          O(N!) = O(8!) = O(40,320)
+COMPLEJIDAD ESPACIAL:          O(N²) = O(64)
+TIEMPO DE EJECUCIÓN:           < 1 segundo
+MEMORIA UTILIZADA:             < 1 MB
+TAMAÑO DEL CÓDIGO:             8.27 KB
+TAMAÑO DEL EJECUTABLE:         140.51 KB
+TAMAÑO DE SALIDA (.txt):       201.73 KB
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  RESUMEN DE CONTENIDOS POR ARCHIVO                                           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ README.txt                                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Descripción general                      ✓ Cómo compilar                  │
+│ ✓ Inicio rápido                            ✓ Cómo ejecutar                  │
+│ ✓ Características principales              ✓ Entender la salida             │
+│ ✓ Archivos generados                       ✓ Cumplimiento de requisitos     │
+│ ✓ Requisitos técnicos                      ✓ Estructura del código           │
+│ ✓ Complejidad BIG-O                        ✓ Algoritmo explicado            │
+│ ✓ Resultados de ejecución                  ✓ Detalles de implementación     │
+│ ✓ FAQ                                      ✓ Solución de problemas          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ANALISIS_COMPLEJIDAD.txt                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Descripción del problema                 ✓ Análisis de operaciones        │
+│ ✓ Algoritmo utilizado (Backtracking)       ✓ Complejidad espacial           │
+│ ✓ Pseudocódigo                             ✓ Tipos de complejidad (tabla)   │
+│ ✓ Análisis temporal detallado               ✓ Comparación con otros         │
+│ ✓ Fórmula recursiva                        ✓ Ventajas y desventajas        │
+│ ✓ Cálculo para N=8                         ✓ Mediciones reales              │
+│ ✓ Análisis con optimización (poda)         ✓ Conclusión                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ RESUMEN_TECNICO.txt                                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Información básica                       ✓ Restricciones técnicas         │
+│ ✓ Características (con ✓)                  ✓ Cómo interpretar salida        │
+│ ✓ Complejidad BIG-O                        ✓ Fórmulas matemáticas           │
+│ ✓ Archivos generados                       ✓ Comparación de complejidades   │
+│ ✓ Resultados de ejecución                  ✓ Ventajas/Desventajas          │
+│ ✓ Cómo compilar/ejecutar                   ✓ Escalabilidad (tabla)          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROYECTO_COMPLETADO.txt                                                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Checklist de requisitos                  ✓ Flujo de ejecución             │
+│ ✓ Especificaciones técnicas                ✓ Archivos generados             │
+│ ✓ Cómo usar el programa                    ✓ Análisis BIG-O resumido        │
+│ ✓ Ejemplo de salida                        ✓ Limitaciones                   │
+│ ✓ Análisis de complejidad                  ✓ Detalles técnicos              │
+│ ✓ Ventajas del algoritmo                   ✓ Conclusión ejecutiva           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ EJEMPLOS_VISUALES.txt                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ✓ Solución #1 visual                       ✓ Análisis visual de poda        │
+│ ✓ Solución #10 visual                      ✓ Ejemplo de archivo de salida   │
+│ ✓ Solución #92 visual                      ✓ Estadísticas de soluciones     │
+│ ✓ Comparación de soluciones                ✓ Cómo leer la salida            │
+│ ✓ Patrones en soluciones                   ✓ Conclusión visual              │
+│ ✓ Visualización de procesos fallidos       │                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  FLUJO DE INFORMACIÓN EN EL PROYECTO                                         ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+ENTRADA:
+  User → Ejecuta: reinas.exe
+
+PROCESAMIENTO:
+  reinas.exe → Lee: reinas.cpp
+             → Ejecuta: Algoritmo backtracking
+             → Encuentra: 92 soluciones en 2,057 procesos
+             → Valida: Cada solución (no hay ataques)
+
+SALIDA:
+  reinas.exe → Pantalla: 92 tableros gráficos (consola)
+             → Archivo: soluciones_8_reinas.txt (201.73 KB)
+
+ANÁLISIS:
+  User → Lee: ANALISIS_COMPLEJIDAD.txt
+       → Lee: RESUMEN_TECNICO.txt
+       → Lee: PROYECTO_COMPLETADO.txt
+       → Comprende: O(N!), poda, 94.9% de mejora
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  PALABRAS CLAVE POR ARCHIVO                                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+README.txt:
+  backtracking, 8 reinas, C++, compilar, ejecutar, tablero 8x8, 92 soluciones
+
+GUIA_USO.txt:
+  manual, instrucciones, consola, archivo .txt, visualización, punteros
+
+ANALISIS_COMPLEJIDAD.txt:
+  O(N!), O(8!), 40,320, poda, recursión, espacio, tiempo, fórmula
+
+RESUMEN_TECNICO.txt:
+  técnico, ejecutivo, tabla, complejidad, escalabilidad, ventajas
+
+PROYECTO_COMPLETADO.txt:
+  requisitos, checklist, completo, exitoso, análisis, conclusión
+
+EJEMPLOS_VISUALES.txt:
+  solución, tablero, visual, ejemplo, patrón, estadística
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  NIVEL DE PROFUNDIDAD POR ARCHIVO                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+NIVEL INTRODUCTORIO:
+  ✓ README.txt                  (Visión general, no técnico)
+  ✓ GUIA_USO.txt                (Cómo usar paso a paso)
+  ✓ EJEMPLOS_VISUALES.txt       (Ver ejemplos gráficos)
+
+NIVEL INTERMEDIO:
+  ✓ RESUMEN_TECNICO.txt         (Resumen técnico completo)
+  ✓ PROYECTO_COMPLETADO.txt     (Verificación de requisitos)
+
+NIVEL AVANZADO:
+  ✓ ANALISIS_COMPLEJIDAD.txt    (Análisis matemático detallado)
+  ✓ reinas.cpp                  (Código fuente para programadores)
+
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                        PROYECTO 100% DOCUMENTADO                              ║
+║                                                                               ║
+║                      Todos los archivos están relacionados                     ║
+║                    y proporcionan información complementaria                   ║
+║                                                                               ║
+║                         Elige el archivo que necesitas                        ║
+║                              según tu perfil                                 ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝

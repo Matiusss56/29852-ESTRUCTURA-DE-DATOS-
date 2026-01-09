@@ -1,0 +1,187 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    ANÁLISIS DE COMPLEJIDAD ALGORITMICA
+                      PROBLEMA DE LAS 8 REINAS - BACKTRACKING
+═══════════════════════════════════════════════════════════════════════════════
+
+1. DESCRIPCIÓN DEL PROBLEMA
+──────────────────────────
+El problema de las 8 Reinas es un clásico desafío de ajedrez que consiste en
+colocar 8 reinas en un tablero de ajedrez 8×8 de manera que ninguna reina
+ataque a otra. Dos reinas se atacan si están en la misma fila, columna o diagonal.
+
+2. ALGORITMO UTILIZADO
+──────────────────────
+NOMBRE: Backtracking (Retroceso) con poda
+TIPO: Algoritmo exhaustivo / Fuerza bruta inteligente
+TÉCNICA: Recursiva con validación temprana
+
+PSEUDOCÓDIGO GENERAL:
+    función resolver(tablero, fila):
+        SI fila == N:
+            GUARDAR solución encontrada
+            RETORNAR
+        
+        PARA cada columna EN rango(0, N):
+            SI esSeguro(tablero, fila, columna):
+                colocar_reina(tablero, fila, columna)
+                resolver(tablero, fila + 1)
+                remover_reina(tablero, fila, columna)  // BACKTRACK
+
+3. ANÁLISIS DE COMPLEJIDAD TEMPORAL - O(N!)
+──────────────────────────────────────────
+
+A. PEOR CASO: O(8!) = O(40,320) operaciones principales
+
+   Justificación:
+   • El algoritmo explora todas las permutaciones posibles de colocar reinas
+   • Para la primera fila: 8 opciones
+   • Para la segunda fila: hasta 8 opciones
+   • Para la tercera fila: hasta 8 opciones
+   • ... y así sucesivamente
+
+   Fórmula recursiva:
+   T(n) = n × T(n-1)
+   T(1) = 1
+   T(n) = n × (n-1) × (n-2) × ... × 1 = n!
+
+   Cálculo para N=8:
+   8! = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 40,320
+
+B. CON OPTIMIZACIÓN (PODA):
+   • El algoritmo NO explora realmente 40,320 configuraciones válidas
+   • La función esSeguro() elimina ramas de búsqueda tempranamente
+   • Se evitan configuraciones que violarían las restricciones
+   • En la práctica, solo se exploran ~2,057 nodos (como vimos en ejecución)
+   • La poda reduce efectivamente la complejidad: O(8!) ≈ O(2,057 nodos)
+
+C. ANÁLISIS DETALLADO DE OPERACIONES:
+
+   Operaciones por nivel de recursión:
+   • Nivel 0 (fila 0): 8 iteraciones
+   • Nivel 1 (fila 1): ~4 iteraciones promedio (poda)
+   • Nivel 2 (fila 2): ~2 iteraciones promedio (poda)
+   • Nivel 3 (fila 3): variable según poda
+   • ...
+   • Nivel 7 (fila 7): 1 ó 0 iteraciones
+
+   Total de nodos explorados: ~2,057 (en la ejecución)
+
+4. ANÁLISIS DE COMPLEJIDAD ESPACIAL - O(N²) + O(N)
+──────────────────────────────────────────────────
+
+A. MEMORIA DEL TABLERO:
+   • Estructura: Array dinámico de 64 posiciones (8×8)
+   • Tamaño: O(N²) = O(64) espacios de memoria
+   • Tipo de dato: int (4 bytes cada uno)
+   • Total: 64 × 4 = 256 bytes
+
+B. PILA DE RECURSIÓN:
+   • Profundidad máxima: N = 8 llamadas simultáneas
+   • Cada llamada almacena: parámetros y variables locales
+   • Tamaño: O(N) = O(8) marcos de pila
+   • Promedio: ~32-64 bytes por marco = ~256-512 bytes
+
+C. OTRAS ESTRUCTURAS:
+   • Variables globales: totalSoluciones, procesoActual (~8 bytes)
+   • Archivo abierto: ~1 KB buffer
+
+D. ESPACIO TOTAL:
+   O(N²) + O(N) = O(64) + O(8) = O(64) ≈ DOMINADO POR O(N²)
+   Espacio total aproximado: ~500 KB en tiempo de ejecución
+
+5. TIPOS DE COMPLEJIDAD Y SU RELACIÓN
+──────────────────────────────────────
+
+Para N = 8:
+┌──────────────────┬─────────────┬────────────────────┐
+│ Complejidad      │ Valor       │ Significado        │
+├──────────────────┼─────────────┼────────────────────┤
+│ O(1)             │ 1           │ Constante          │
+│ O(log N)         │ ~3          │ Logarítmico        │
+│ O(N)             │ 8           │ Lineal             │
+│ O(N log N)       │ ~24         │ Lineal logarítmico │
+│ O(N²)            │ 64          │ Cuadrático         │
+│ O(N³)            │ 512         │ Cúbico             │
+│ O(2^N)           │ 256         │ Exponencial        │
+│ O(N!)  ← NUESTRO │ 40,320      │ Factorial          │
+└──────────────────┴─────────────┴────────────────────┘
+
+CONCLUSIÓN: Nuestro algoritmo tiene la peor complejidad común: O(N!)
+
+6. COMPARACIÓN CON OTRAS SOLUCIONES
+────────────────────────────────────
+
+A. Fuerza Bruta SIN PODA:
+   • Complejidad: O(N^N) = O(8^8) = 16,777,216
+   • Intenta colocar reinas en TODOS los cuadrados sin validación inicial
+   • Muchísimo más lento
+
+B. Backtracking CON PODA (NUESTRO ALGORITMO):
+   • Complejidad teórica: O(N!)
+   • Complejidad práctica: O(2,057 nodos)
+   • Valida restricciones tempranamente, evita muchas ramas
+
+C. Algoritmos especializados:
+   • Constraint Satisfaction Problem (CSP): O(N!) pero más optimizado
+   • Algoritmos genéticos: Tiempo variable, aproximadas
+   • Hill Climbing: Más rápido pero no encuentra todas las soluciones
+
+7. VENTAJAS DEL BACKTRACKING CON PODA
+──────────────────────────────────────
+
+✓ Completo: Encuentra TODAS las soluciones (92 soluciones para 8 reinas)
+✓ Óptimo: Tan eficiente como es posible para este tipo de problema
+✓ Poda temprana: Elimina ramas inválidas antes de explorarlas
+✓ Memoria eficiente: No necesita almacenar todas las soluciones
+✓ Flexible: Fácil de adaptar a variaciones del problema
+
+8. DESVENTAJAS
+──────────────
+
+✗ Complejidad O(N!) crece muy rápido
+✗ Para N=10: 10! = 3,628,800 operaciones
+✗ Para N=12: 12! = 479,001,600 operaciones
+✗ Para N=15: 15! = 1,307,674,368,000 operaciones
+✗ No viable para tableros muy grandes (N > 20)
+
+9. MEDICIONES REALES DE EJECUCIÓN
+──────────────────────────────────
+
+Resultados observados en la ejecución:
+• Soluciones encontradas: 92 (correcto para tablero 8×8)
+• Procesos ejecutados: 2,057
+• Nodos sin poda que se habrían explorado: 40,320
+• Eficiencia de poda: (40,320 - 2,057) / 40,320 = 94.9% de ramas eliminadas
+• Tiempo de ejecución: < 1 segundo
+• Archivo generado: 206,574 bytes (202 KB)
+
+10. ANÁLISIS BIG-O FINAL
+────────────────────────
+
+┌─────────────────────────────────────────────────────┐
+│ COMPLEJIDAD TEMPORAL:  O(N!) = O(8!)  = O(40,320)  │
+│ COMPLEJIDAD ESPACIAL:  O(N²)  = O(64) = O(256 B)   │
+│ PILA DE RECURSIÓN:     O(N)   = O(8)  = O(256 B)   │
+│ MEMORIA TOTAL:         O(N²)  = Dominante          │
+└─────────────────────────────────────────────────────┘
+
+TIPO DE ALGORITMO: Exhaustivo / Fuerza Bruta Inteligente
+TÉCNICA: Backtracking + Poda
+CATEGORÍA: NP-Completo (en su forma general)
+
+11. CONCLUSIÓN
+──────────────
+
+El problema de las 8 Reinas con Backtracking es un excelente ejemplo de:
+• Cómo la poda temprana reduce drásticamente la exploración del espacio
+• La importancia de validación temprana de restricciones
+• Cuando O(N!) es aceptable (problemas pequeños, N ≤ 15)
+• La diferencia entre complejidad teórica y práctica
+
+Para este problema específico (N=8):
+• Teóricamente: O(8!) = 40,320 operaciones
+• Prácticamente: ~2,057 nodos explorados
+• Reducción: 94.9% mediante poda inteligente
+• Resultado: Todas las 92 soluciones encontradas en < 1 segundo
+
+═══════════════════════════════════════════════════════════════════════════════

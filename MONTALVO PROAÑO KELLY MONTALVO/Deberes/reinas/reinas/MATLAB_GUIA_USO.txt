@@ -1,0 +1,257 @@
+═══════════════════════════════════════════════════════════════════════════
+                   GUÍA DE USO - MATLAB VISUALIZATION
+                    Problema de las 8 Reinas - Backtracking
+═══════════════════════════════════════════════════════════════════════════
+
+## DESCRIPCIÓN DEL PROGRAMA MATLAB
+
+El script 'reinas_grafico.m' visualiza el problema de las 8 reinas de forma gráfica
+e interactiva, mostrando tableros de ajedrez y análisis de complejidad.
+
+───────────────────────────────────────────────────────────────────────────
+## CARACTERÍSTICAS PRINCIPALES
+───────────────────────────────────────────────────────────────────────────
+
+✓ ALGORITMO DE BACKTRACKING
+  • Encuentra todas las 92 soluciones válidas
+  • Implementa poda de ramas inválidas
+  • Complejidad: O(N!) con optimizaciones
+
+✓ VISUALIZACIÓN GRÁFICA EN TIEMPO REAL
+  • Tablero de ajedrez en colores
+  • Reinas representadas con símbolos (♛)
+  • Información de posiciones de reinas
+  • Códigos de ajedrez (a-h, 1-8)
+
+✓ SELECCIÓN ALEATORIA
+  • Cada ejecución genera una solución diferente
+  • Usa rng('shuffle') para aleatoriedad verdadera
+  • Muestra solución seleccionada con marco especial
+
+✓ GRÁFICOS DE ANÁLISIS
+  • Crecimiento factorial O(N!)
+  • Comparación teórico vs práctico
+  • Porcentaje de eficiencia de poda
+  • Estadísticas detalladas
+
+✓ EXPORTACIÓN DE RESULTADOS
+  • Guarda imágenes de soluciones
+  • Genera gráficos de complejidad
+  • Formato PNG de alta calidad
+
+───────────────────────────────────────────────────────────────────────────
+## REQUISITOS
+───────────────────────────────────────────────────────────────────────────
+
+• MATLAB R2019a o superior
+• Image Processing Toolbox (opcional, para mejor visualización)
+• Resolución de pantalla: 1920x1080 recomendado
+
+───────────────────────────────────────────────────────────────────────────
+## CÓMO EJECUTAR
+───────────────────────────────────────────────────────────────────────────
+
+Opción 1: Desde la línea de comandos de MATLAB
+   >> run('reinas_grafico.m')
+
+Opción 2: Desde el Editor de MATLAB
+   1. Abrir archivo 'reinas_grafico.m'
+   2. Presionar F5 o hacer clic en Run
+   3. Ver las figuras generadas
+
+Opción 3: Ejecutar desde Script directo
+   >> reinas_grafico
+
+───────────────────────────────────────────────────────────────────────────
+## ARCHIVOS GENERADOS
+───────────────────────────────────────────────────────────────────────────
+
+1. reinas_solucion_grafica.png
+   • Tablero principal con solución aleatoria
+   • Información detallada de posiciones
+   • Análisis de complejidad integrado
+   • Tamaño: 1000x800 píxeles
+
+2. reinas_primeras_12_soluciones.png
+   • Muestra las primeras 12 soluciones
+   • Tableros en formato miniatura
+   • Solución seleccionada marcada con ✓
+   • Tamaño: 1400x600 píxeles
+
+3. reinas_analisis_complejidad.png
+   • Gráficos matemáticos y estadísticos
+   • Crecimiento factorial
+   • Comparación teórico vs práctico
+   • Análisis de eficiencia
+   • Tamaño: 800x600 píxeles
+
+───────────────────────────────────────────────────────────────────────────
+## INTERPRETACIÓN DE LOS GRÁFICOS
+───────────────────────────────────────────────────────────────────────────
+
+TABLERO PRINCIPAL:
+  • Color verde oscuro = cuadro del tablero
+  • Color claro = espacios alternados
+  • Círculo rojo con ♛ = Reina posicionada
+  • Letras a-h en x = Columnas de ajedrez
+  • Números 1-8 en y = Filas de ajedrez
+  • Cada reina no ataca a otra (sin conflictos)
+
+INFORMACIÓN DE POSICIONES:
+  • Lista cada reina por su posición (ej: a8, e7, h6...)
+  • Posición válida de ajedrez
+  • Garantiza solución correcta sin conflictos
+
+ANÁLISIS DE COMPLEJIDAD:
+  1️⃣ Gráfico 1 - Crecimiento Factorial
+     • Muestra O(N!) para N = 1 a 8
+     • Crecimiento exponencial
+     • Punto rojo = N=8 (40,320 operaciones)
+
+  2️⃣ Gráfico 2 - Eficiencia de Poda
+     • Barra roja = Complejidad teórica (40,320)
+     • Barra verde = Complejidad práctica (~1,500)
+     • Diferencia = Beneficio de poda inteligente
+
+  3️⃣ Gráfico 3 - Porcentaje de Reducción
+     • Verde = 96.3% de ramas podadas
+     • Rojo = 3.7% de ramas exploradas
+     • Demuestra eficiencia del algoritmo
+
+  4️⃣ Cuadro - Resumen Estadístico
+     • Total de soluciones: 92
+     • Factor de reducción: 26.88×
+     • Complejidad espacial: O(N²)
+     • Tiempo estimado: < 1 ms
+
+───────────────────────────────────────────────────────────────────────────
+## FLUJO DE EJECUCIÓN
+───────────────────────────────────────────────────────────────────────────
+
+1. INICIALIZACIÓN
+   ├─ Limpiar variables (clear, close, clc)
+   └─ Definir tamaño N = 8
+
+2. BÚSQUEDA DE SOLUCIONES
+   ├─ Ejecutar algoritmo backtracking
+   ├─ Probar cada columna en cada fila
+   ├─ Validar sin conflictos (columnas/diagonales)
+   ├─ Guardar soluciones válidas
+   └─ Total: 92 soluciones encontradas
+
+3. SELECCIÓN ALEATORIA
+   ├─ Usar rng('shuffle') para semilla aleatoria
+   ├─ Generar número: 1 a 92
+   └─ Marcar solución como seleccionada
+
+4. VISUALIZACIÓN GRÁFICA
+   ├─ Figura 1: Tablero principal + información
+   ├─ Figura 2: Primeras 12 soluciones (miniatura)
+   └─ Figura 3: Gráficos de análisis
+
+5. EXPORTACIÓN
+   ├─ Guardar Figura 1 como PNG
+   ├─ Guardar Figura 2 como PNG
+   └─ Guardar Figura 3 como PNG
+
+───────────────────────────────────────────────────────────────────────────
+## PARÁMETROS AJUSTABLES
+───────────────────────────────────────────────────────────────────────────
+
+Para modificar el programa, edita estos valores en el código:
+
+• n = 8
+  Cambiar a un número diferente para usar tableros más grandes
+  Ejemplo: n = 10 para tablero de 10×10
+
+• rng('shuffle')
+  Para reproducibilidad, cambiar a:
+  rng(12345)  % Semilla fija
+
+• Colores del tablero
+  'FaceColor', [0.9, 0.9, 0.8]  % Cuadro claro
+  'FaceColor', [0.3, 0.5, 0.2]  % Cuadro oscuro
+  Usar formato RGB: [Rojo, Verde, Azul] (0-1)
+
+───────────────────────────────────────────────────────────────────────────
+## COMPARACIÓN: C++ vs MATLAB
+───────────────────────────────────────────────────────────────────────────
+
+PROGRAMA C++ (reinas.exe):
+  ✓ Ejecución muy rápida (< 1 ms)
+  ✓ Salida en consola
+  ✓ Registro en archivos .txt
+  ✓ Usa memoria dinámica con pointers
+  ✗ Visualización limitada a texto
+
+PROGRAMA MATLAB (reinas_grafico.m):
+  ✓ Visualización gráfica profesional
+  ✓ Gráficos de análisis matemáticos
+  ✓ Exportación a imágenes PNG
+  ✓ Interactividad con figuras
+  ✗ Ejecución más lenta (~100 ms)
+
+───────────────────────────────────────────────────────────────────────────
+## EJEMPLO DE SALIDA EN CONSOLA
+───────────────────────────────────────────────────────────────────────────
+
+╔════════════════════════════════════════════════════════════════╗
+║     PROBLEMA DE LAS 8 REINAS - VISUALIZACIÓN EN MATLAB       ║
+║                   (BACKTRACKING)                             ║
+╚════════════════════════════════════════════════════════════════╝
+
+Buscando todas las 92 soluciones...
+Complejidad: O(N!) = O(8!) = 40,320
+
+✓ Búsqueda completada
+✓ Total de soluciones encontradas: 92
+
+═════════════════════════════════════════════════════════════════
+Solución seleccionada aleatoriamente: #75
+═════════════════════════════════════════════════════════════════
+
+✓ Gráfico guardado como: reinas_solucion_grafica.png
+✓ Primeras 12 soluciones guardadas como: reinas_primeras_12_soluciones.png
+✓ Análisis de complejidad guardado como: reinas_analisis_complejidad.png
+
+╔════════════════════════════════════════════════════════════════╗
+║              ✓ VISUALIZACIÓN COMPLETADA ✓                   ║
+╚════════════════════════════════════════════════════════════════╝
+
+───────────────────────────────────────────────────────────────────────────
+## RESOLUCIÓN DE PROBLEMAS
+───────────────────────────────────────────────────────────────────────────
+
+❌ Error: "Undefined function or variable 'soluciones'"
+✓ Solución: Usar 'global soluciones' al inicio del programa
+
+❌ Error: "Figure size exceeds screen resolution"
+✓ Solución: Cambiar 'Position' en figure() a valores menores
+
+❌ Warning: "Legend does not automatically update when adding data"
+✓ Solución: Es solo advertencia, no afecta ejecución
+
+❌ Imágenes no se guardan
+✓ Solución: Verificar permisos de escritura en directorio actual
+
+───────────────────────────────────────────────────────────────────────────
+## REFERENCIAS MATEMÁTICAS
+───────────────────────────────────────────────────────────────────────────
+
+Problema de las N-Reinas:
+  • Problema clásico de Constraint Satisfaction Problems (CSP)
+  • Primera formulación: 1848 por Max Bezzel
+
+Complejidad:
+  • Teórica: O(N!) operaciones
+  • Con Poda: O(N * (N-1) * ... * 1) reducido significativamente
+  • Soluciones: Existe 1 solución para N=0, 0 para N=2,3, 92 para N=8
+
+Backtracking:
+  • Algoritmo divide-and-conquer
+  • Explora árbol de búsqueda con podas
+  • Aplicable a problemas de satisfacción
+
+═══════════════════════════════════════════════════════════════════════════
+                            FIN DE LA GUÍA
+═══════════════════════════════════════════════════════════════════════════

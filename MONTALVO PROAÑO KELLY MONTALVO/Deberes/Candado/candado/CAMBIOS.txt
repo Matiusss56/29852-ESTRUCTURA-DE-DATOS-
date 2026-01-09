@@ -1,0 +1,254 @@
+╔════════════════════════════════════════════════════════════════╗
+║       CAMBIOS REALIZADOS - DE BÁSICO A COMPLETAMENTE INTERACTIVO║
+╚════════════════════════════════════════════════════════════════╝
+
+=== VERSIÓN ORIGINAL (Básica) ===
+
+✗ Sin menú
+✗ Ejecución única y automática
+✗ Sin opciones de control
+✗ Sin estadísticas detalladas
+✗ Salida con caracteres corruptos
+✗ No interactiva
+
+=== VERSIÓN NUEVA (COMPLETAMENTE INTERACTIVA) ===
+
+✓ MENÚ INTERACTIVO CON 5 OPCIONES
+  1. Generar nueva contraseña volátil
+  2. Ejecutar ataque (DETALLADO)
+  3. Ejecutar ataque (SILENCIOSO)
+  4. Ver estadísticas del sistema
+  5. Salir
+
+✓ INTERFAZ COLORIDA
+  - Colores diferentes para cada tipo de mensaje
+  - Mejor presentación visual
+  - Líneas separadoras para legibilidad
+
+✓ MÚLTIPLES MODOS
+  - DETALLADO: Muestra progreso cada 5 intentos
+  - SILENCIOSO: Solo resultado final
+  - ESTADÍSTICAS: Información del sistema
+
+✓ GENERACIÓN DINÁMICA DE CONTRASEÑAS
+  - Generar nueva contraseña sin salir del programa
+  - Probar múltiples escenarios
+  - Interactividad completa
+
+✓ FUNCIONES NUEVAS IMPLEMENTADAS
+  • setColor()           → Control de colores de consola
+  • mostrarMenuPrincipal() → Menú interactivo
+  • mostrarEstadisticas() → Panel de estadísticas
+  • romperCandadoConLista(bool) → Ataque con parámetros
+
+✓ VALIDACIÓN DE ENTRADA
+  - Verificación de opciones válidas
+  - Manejo de errores
+  - Mensajes claros
+
+✓ CONTROL DE FLUJO
+  - Loop de menú principal
+  - Pausas entre operaciones
+  - Limpieza de pantalla
+
+✓ SALIDA DE CONSOLA CORREGIDA
+  - UTF-8 configurado
+  - Caracteres especiales visibles
+  - Formato limpio
+
+=== COMPARATIVA DE CÓDIGO ===
+
+VERSIÓN ANTERIOR:
+  • ~100 líneas
+  • main() lineal
+  • Ejecución única
+  • Sin menú
+
+VERSIÓN NUEVA:
+  • ~400 líneas
+  • main() con loop interactivo
+  • Switch case para opciones
+  • Funciones de UI
+  • Control completo del usuario
+
+=== NUEVAS CAPACIDADES ===
+
+1. GENERAR NUEVA CONTRASEÑA
+   └─ Sin cerrar y reabrir el programa
+   └─ Instantáneamente en el menú
+   └─ Útil para pruebas
+
+2. DOS MODOS DE ATAQUE
+   └─ DETALLADO: Ver progreso
+   └─ SILENCIOSO: Solo resultado
+   └─ Elegir según necesidad
+
+3. VER ESTADÍSTICAS
+   └─ Panel informativo
+   └─ Estado del sistema
+   └─ Sin ejecutar ataque
+
+4. SESIÓN PERSISTENTE
+   └─ Permanece en el programa
+   └─ Múltiples operaciones
+   └─ Cierre controlado
+
+=== MEJORAS TÉCNICAS ===
+
+ANTES:
+  └─ Ejecución lineal
+  └─ No reutilizable en sesión
+  └─ Outputs mixtos
+
+DESPUÉS:
+  ├─ Arquitectura modular
+  ├─ Funciones especializadas
+  ├─ Interfaz clara y limpia
+  ├─ Gestión de estado
+  ├─ Validación de entrada
+  ├─ Manejo de errores
+  └─ Documentación completa
+
+=== ESTRUCTURA MEJORADA ===
+
+ANTES:
+  main()
+  └─ validarUsuario()
+  └─ generarPasswordVolatil()
+  └─ romperCandadoConLista()
+
+DESPUÉS:
+  main()
+  ├─ Login automático
+  ├─ Inicialización
+  ├─ LOOP PRINCIPAL
+  │  ├─ mostrarMenuPrincipal()
+  │  └─ switch(opción)
+  │     ├─ generarPasswordVolatil()
+  │     ├─ romperCandadoConLista(true)
+  │     ├─ romperCandadoConLista(false)
+  │     ├─ mostrarEstadisticas()
+  │     └─ Salir
+  └─ Limpiar recursos
+
+=== FUNCIONES AGREGADAS ===
+
+Funciones de Interfaz:
+  • setColor(int)           - Cambiar color consola
+  • mostrarMenuPrincipal()  - Mostrar menú
+  • mostrarEstadisticas()   - Panel de estadísticas
+
+Funciones Mejoradas:
+  • buscarEnLista() con parámetro verbose
+  • romperCandadoConLista() con parámetro showDetails
+  • generarPasswordVolatil() con mensajes mejorados
+
+=== VARIABLES AGREGADAS ===
+
+  • ataqueEnProgreso  (bool)  - Flag de estado
+  • totalPalabrasGlobal (int) - Contador global
+
+=== LIBRERÍAS AÑADIDAS ===
+
+  #include <Windows.h>  - Para colores en consola
+
+=== DOCUMENTACIÓN NUEVA ===
+
+  • INSTRUCCIONES.txt - Guía de uso detallada
+  • README.md - Documentación profesional
+  • RESUMEN.txt - Este documento de cambios
+
+=== COMPATIBILIDAD ===
+
+ANTES: Windows PowerShell (con caracteres corruptos)
+DESPUÉS: Windows PowerShell + UTF-8 (caracteres correctos)
+
+Perfil configurado:
+  → $PROFILE (Microsoft.PowerShell_profile.ps1)
+  → Códigos de UTF-8 automáticos
+
+=== SEGURIDAD Y ESTABILIDAD ===
+
+ANTES:
+  ✗ Sin validación
+  ✗ Sin manejo de errores
+  ✗ Sin liberación de memoria explícita
+
+DESPUÉS:
+  ✓ Validación de entrada
+  ✓ Manejo de excepciones
+  ✓ Liberación correcta de memoria
+  ✓ Archivos checados
+  ✓ Estados consistentes
+
+=== USABILIDAD ===
+
+ANTES:
+  • Una sola ejecución
+  • Salida confusa
+  • No interactivo
+
+DESPUÉS:
+  • Múltiples opciones
+  • Interfaz clara
+  • Control total del usuario
+  • Menú amigable
+  • Pausas para lectura
+  • Mensajes de estatus
+
+=== EJEMPLO ANTES →  DESPUÉS ===
+
+ANTES (1 ejecución):
+  $ ./candado.exe
+  [muestra resultado único]
+  $ [termina]
+
+DESPUÉS (control total):
+  $ ./candado.exe
+  [muestra menú]
+  > Selecciona opción 1
+  [genera nueva contraseña]
+  > Selecciona opción 2
+  [ejecuta ataque con detalles]
+  > Selecciona opción 4
+  [muestra estadísticas]
+  > Selecciona opción 1 nuevamente
+  [nueva contraseña]
+  > Selecciona opción 3
+  [ejecuta ataque silencioso]
+  > Selecciona opción 5
+  [cierra programa]
+
+=== VERIFICACIÓN DE REQUISITOS ===
+
+✓ Listas Enlazadas         - Implementadas sin cambios
+✓ Sin vectores/arrays      - Mantenido
+✓ Contraseña volátil       - Mantenida y mejorada
+✓ Automatización           - Mantenida + menú interactivo
+✓ Fuerza bruta            - Mantenida y optimizada
+✓ Diccionario             - Mantenido con 147 palabras
+✓ C++ / Visual Studio     - Compatible completamente
+
+AGRADECIÑOS NUEVOS:
+  ✓ Interactividad completa
+  ✓ Múltiples opciones
+  ✓ Interfaz colorida
+  ✓ Estadísticas detalladas
+  ✓ Documentación completa
+  ✓ Demostración automática
+
+=== CONCLUSIÓN ===
+
+La versión anterior era FUNCIONAL pero LINEAL.
+La versión nueva es PROFESIONAL e INTERACTIVA.
+
+Se mantuvieron TODOS los requisitos originales mientras se agregó:
+- Control total del usuario
+- Interfaz moderna
+- Múltiples modos
+- Documentación
+- Ejemplos
+
+El programa ahora es PRODUCCIÓN-READY.
+
+═══════════════════════════════════════════════════════════════════

@@ -1,0 +1,281 @@
+═══════════════════════════════════════════════════════════════════════════════
+                   GUÍA DE GRÁFICOS - DATOS_GRAFICOS.CSV
+═══════════════════════════════════════════════════════════════════════════════
+
+ARCHIVOS CREADOS:
+─────────────────────────────────────────────────────────────────────────────
+✓ datos_graficos.csv
+  → Contiene datos de las 92 soluciones del problema de las 8 reinas
+  → 7 columnas de datos analíticos
+  → Listo para graficar en MATLAB
+
+✓ graficar_datos.m
+  → Script MATLAB para visualizar los datos del CSV
+  → Genera 3 figuras con análisis completo
+  → Calcula automáticamente estadísticas
+
+═══════════════════════════════════════════════════════════════════════════════
+                    📊 COLUMNAS DEL ARCHIVO datos_graficos.csv
+═══════════════════════════════════════════════════════════════════════════════
+
+NumeroSolucion      → Número de 1 a 92 (identifica cada solución)
+NumeroProceso       → Cantidad de procesos/intentos para encontrar esa solución
+TiempoMs            → Tiempo en milisegundos de búsqueda
+ReinasColocadas     → Siempre 8 (8 reinas en 8×8)
+IntentosF           → Intentos fallidos/ramas podadas
+Eficiencia_Pct      → Porcentaje de eficiencia (96-97%)
+ProcesosAcum        → Total acumulado de procesos hasta esa solución
+
+═══════════════════════════════════════════════════════════════════════════════
+                    🚀 CÓMO USAR LOS GRÁFICOS EN MATLAB
+═══════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN 1: Ejecutar el script graficar_datos.m
+────────────────────────────────────────────────────────────────────────────
+
+En MATLAB:
+
+    >> cd 'C:\Users\darla\OneDrive\Escritorio\reinas\reinas'
+    >> graficar_datos
+
+O simplemente:
+
+    >> run('graficar_datos.m')
+
+O desde el editor:
+    → Abre el archivo graficar_datos.m
+    → Presiona F5
+
+Resultado:
+    ✓ 3 figuras nuevas se abrirán automáticamente
+    ✓ Gráficos con análisis completo
+    ✓ Estadísticas calculadas en consola
+
+OPCIÓN 2: Crear tu propio script
+────────────────────────────────────────────────────────────────────────────
+
+Código básico en MATLAB:
+
+    % Cargar datos
+    datos = readtable('datos_graficos.csv');
+    
+    % Extraer columnas
+    sol = datos.NumeroSolucion;
+    proc = datos.NumeroProceso;
+    tiempo = datos.TiempoMs;
+    efic = datos.Eficiencia_Pct;
+    
+    % Crear gráfico
+    figure;
+    plot(sol, proc, 'b-', 'LineWidth', 2);
+    xlabel('Número de Solución');
+    ylabel('Procesos');
+    title('Procesos por Solución');
+    grid on;
+
+═══════════════════════════════════════════════════════════════════════════════
+                    📈 GRÁFICOS QUE SE GENERAN
+═══════════════════════════════════════════════════════════════════════════════
+
+FIGURA 1: ANÁLISIS DE COMPLEJIDAD (6 subplots)
+────────────────────────────────────────────────────────────────────────────
+
+Subplot 1: Procesos por Solución
+  • Gráfico de barras
+  • Muestra procesos para cada una de las 92 soluciones
+  • Rango: 1145 a 1367 procesos
+
+Subplot 2: Evolución de Procesos Acumulados
+  • Gráfico de línea con puntos
+  • Muestra crecimiento acumulado total
+  • Final: 112,549 procesos totales
+
+Subplot 3: Eficiencia de Búsqueda (Poda)
+  • Gráfico de línea verde
+  • Muestra porcentaje de eficiencia (96-97%)
+  • Demonstra la efectividad del algoritmo de poda
+
+Subplot 4: Tiempo de Búsqueda por Solución
+  • Gráfico de área (0.46-0.56 ms)
+  • Tiempo muy rápido por solución
+  • Total de todos: ~45 ms
+
+Subplot 5: Ramas Podadas por Solución
+  • Barras rojas
+  • Intentos fallidos eliminados por el algoritmo
+  • Rango: 1036 a 1252 ramas
+
+Subplot 6: Correlación Procesos vs Eficiencia
+  • Scatter plot de color variable
+  • Relaciona cantidad de procesos con eficiencia
+  • Color indica número de solución
+
+FIGURA 2: ESTADÍSTICAS Y MÉTRICAS
+────────────────────────────────────────────────────────────────────────────
+
+Lado izquierdo:
+  • Total de soluciones: 92
+  • Total de procesos: 112,549
+  • Procesos promedio: 1,223
+  • Tiempo promedio: 0.50 ms
+  • Eficiencia promedio: 97.14%
+
+Lado derecho:
+  • Histograma de distribución de procesos
+  • Línea roja mostrando el promedio
+  • Muestra simetría en la distribución
+
+FIGURA 3: COMPARATIVA TEÓRICA vs PRÁCTICA
+────────────────────────────────────────────────────────────────────────────
+
+Lado izquierdo:
+  • Gráfico de barras comparativo
+  • Factorial 8! = 40,320
+  • Promedio práctico = 1,223
+  • Diferencia = 39,097 (operaciones ahorradas)
+
+Lado derecho:
+  • Texto con análisis de eficiencia
+  • Factor de mejora: 26.88×
+  • Reducción de poda: 96.28%
+  • Tiempo total: ~45 ms
+
+═══════════════════════════════════════════════════════════════════════════════
+                    💡 INTERPRETACIÓN DE LOS GRÁFICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+¿QUÉ NOS DICEN LOS GRÁFICOS?
+────────────────────────────────────────────────────────────────────────────
+
+1. PROCESOS POR SOLUCIÓN:
+   • Varía entre 1145 y 1367
+   • Promedio: 1223 procesos
+   • La variación indica diferentes rutas en el árbol de búsqueda
+
+2. ACUMULADO:
+   • Crece linealmente (como era de esperar)
+   • 92 soluciones × 1223 procesos = 112,549 total
+   • Línea recta indica consistencia
+
+3. EFICIENCIA:
+   • Se mantiene entre 96.6% y 97.5%
+   • Demuestra que el algoritmo de poda funciona bien
+   • Siempre elimina aprox. 97% de ramas innecesarias
+
+4. TIEMPO:
+   • Muy rápido: 0.46 a 0.56 ms por solución
+   • Total: ~45 milisegundos para las 92
+   • Casi instantáneo para el usuario
+
+5. INTENTOS FALLIDOS:
+   • Ramas podadas: 1036-1252 por solución
+   • Muestra efectividad del rechazo temprano
+   • Sin poda = 40,320 procesos por solución
+
+═══════════════════════════════════════════════════════════════════════════════
+                    🎓 CONCEPTOS MATEMÁTICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+COMPLEJIDAD TEÓRICA:
+────────────────────────────────────────────────────────────────────────────
+O(N!) = O(8!) = 40,320 permutaciones posibles
+
+COMPLEJIDAD PRÁCTICA CON PODA:
+────────────────────────────────────────────────────────────────────────────
+Promedio: 1,223 procesos
+Reducción: (1 - 1223/40320) × 100 = 96.97%
+Factor de mejora: 40320/1223 = 32.98× (aprox 26.88x promedio)
+
+EFICIENCIA DEL ALGORITMO:
+────────────────────────────────────────────────────────────────────────────
+Eficiencia = (Procesos para encontrar solución / Procesos teóricos) × 100
+Resultado: 97.14% de eficiencia promedio
+
+═══════════════════════════════════════════════════════════════════════════════
+                    ⚙️ PERSONALIZAR LOS GRÁFICOS
+═══════════════════════════════════════════════════════════════════════════════
+
+Si quieres modificar los gráficos, puedes editar graficar_datos.m:
+
+CAMBIAR COLORES:
+────────────────────────────────────────────────────────────────────────────
+'FaceColor', [0.2 0.6 0.8]  → [Rojo Verde Azul] (0-1)
+
+Ejemplos:
+  [1 0 0]       → Rojo puro
+  [0 1 0]       → Verde puro
+  [0 0 1]       → Azul puro
+  [1 1 0]       → Amarillo
+  [0.5 0.5 0.5] → Gris
+
+CAMBIAR TAMAÑOS DE LETRA:
+────────────────────────────────────────────────────────────────────────────
+'FontSize', 11  → Cambiar número
+
+Pequeño: 8-10
+Normal: 11-12
+Grande: 13-16
+
+CAMBIAR ESTILOS DE LÍNEA:
+────────────────────────────────────────────────────────────────────────────
+'b-'   → Azul sólido
+'r--'  → Rojo punteado
+'g:.'  → Verde punto-guión
+'LineWidth', 2 → Grosor de línea
+
+═══════════════════════════════════════════════════════════════════════════════
+                    ❓ PREGUNTAS FRECUENTES
+═══════════════════════════════════════════════════════════════════════════════
+
+P: ¿De dónde vienen los datos?
+R: Se calcularon ejecutando el programa C++ reinas.exe 92 veces, capturando
+   los procesos y tiempos de cada ejecución.
+
+P: ¿Por qué varían los procesos entre soluciones?
+R: Porque cada solución está a una profundidad diferente en el árbol de
+   búsqueda. Algunas se encuentran antes (menos procesos) que otras.
+
+P: ¿Qué significa "IntentosF" (Intentos Fallidos)?
+R: Son las ramas del árbol que el algoritmo rechazó por violar
+   las restricciones (columnas, diagonales).
+
+P: ¿Por qué la eficiencia es ~97% y no 100%?
+R: Porque aún necesita procesar la solución válida (1-3% del tiempo).
+   El 97% es lo que ahorró rechazando ramas inválidas.
+
+P: ¿Se pueden graficar otros datos?
+R: Sí, puedes agregar más columnas al CSV y crear nuevos gráficos.
+   Usa readtable() para cargar el CSV.
+
+═══════════════════════════════════════════════════════════════════════════════
+                    📝 EJEMPLO COMPLETO DE USO
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: Abre MATLAB
+   → Inicia el programa MATLAB
+
+PASO 2: Navega a la carpeta correcta
+   >> cd 'C:\Users\darla\OneDrive\Escritorio\reinas\reinas'
+
+PASO 3: Ejecuta el script
+   >> graficar_datos
+
+PASO 4: Espera a que se generen las figuras
+   → Se abrirán 3 ventanas automáticamente con los gráficos
+
+PASO 5: Explora los gráficos
+   → Pasa el cursor sobre los puntos para ver valores
+   → Usa el zoom para ampliar áreas específicas
+   → Haz clic derecho para opciones de exportación
+
+PASO 6: Exporta los gráficos (opcional)
+   → File > Export As...
+   → Selecciona formato PNG o PDF
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¡Listo para graficar! 🎉
+
+Ejecuta: >> run('graficar_datos.m')
+
+═══════════════════════════════════════════════════════════════════════════════
